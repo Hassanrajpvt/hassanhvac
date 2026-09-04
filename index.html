@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 Booked HVAC Appointments in 30 Days</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --bg-hero: #0b0b0d;
+    --panel: #141418;
+    --gold: #e8c877;
+    --gold-hover: #f0d98c;
+    --text: #f4f2ec;
+    --muted: #a7a49c;
+    --line: rgba(255, 255, 255, 0.08);
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 104px 0; text-align: center; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 26px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 3.9rem);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin-bottom: 22px;
+  }
+
+  .accent { color: var(--gold); }
+  .g { color: var(--gold); }
+
+  p.body {
+    font-family: var(--sans);
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+  p.body + p.body { margin-top: 16px; }
+
+  .lead {
+    font-family: var(--sans);
+    color: var(--muted);
+    font-size: clamp(1.02rem, 2.1vw, 1.18rem);
+    line-height: 1.65;
+    max-width: 640px;
+    margin: 0 auto 36px;
+  }
+
+  .lead-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+    color: var(--gold);
+    margin: 0 auto 36px;
+  }
+  .hero .lead { margin-bottom: 14px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    background: var(--gold);
+    color: #0d0d0f;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    padding: 18px 48px;
+    border-radius: 2px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn:hover { background: var(--gold-hover); transform: translateY(-1px); }
+  .btn-lg { font-size: 1.05rem; padding: 21px 58px; }
+
+  .subhead {
+    font-family: var(--sans);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 56px 0 6px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 150px 0 122px;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(115% 85% at 50% -8%, rgba(232, 200, 119, 0.12), transparent 55%),
+      radial-gradient(80% 55% at 50% 118%, rgba(232, 200, 119, 0.05), transparent 62%),
+      transparent;
+  }
+  .hero h1 { max-width: 820px; margin-left: auto; margin-right: auto; }
+
+  /* Feature / list cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 46px;
+    text-align: center;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 32px 26px;
+  }
+  .card .num {
+    display: block;
+    font-family: var(--sans);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .card h3 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+    letter-spacing: 0.005em;
+  }
+  .card p { font-family: var(--sans); color: var(--muted); font-size: 0.96rem; line-height: 1.6; }
+
+  /* Proof / results */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 46px;
+  }
+  .stat {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 36px 18px;
+  }
+  .stat .figure { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 5vw, 2.9rem); color: var(--gold); line-height: 1; }
+  .stat .label { font-family: var(--sans); color: var(--muted); font-size: 0.92rem; line-height: 1.5; margin-top: 14px; }
+
+  /* Guarantee statement */
+  .guarantee { max-width: 780px; margin: 44px auto 0; }
+  .guarantee p { font-family: var(--serif); font-weight: 500; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.4; color: var(--text); }
+  .guarantee .cite {
+    display: block;
+    font-family: var(--sans);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-top: 24px;
+  }
+
+  /* Mouse-reactive background effects */
+  html { background: var(--bg); }
+  body { background: transparent; }
+  section { position: relative; z-index: 1; }
+
+  #fx {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  #fx .spot {
+    position: absolute;
+    top: 0; left: 0;
+    width: 640px; height: 640px;
+    margin: -320px 0 0 -320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 200, 119, 0.10), rgba(232, 200, 119, 0.035) 42%, transparent 70%);
+    transform: translate(-1000px, -1000px);
+    will-change: transform;
+  }
+  #fx .orbs { position: absolute; inset: 0; will-change: transform; }
+  #fx .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(44px);
+    background: radial-gradient(circle at 32% 30%, rgba(232, 200, 119, 0.16), transparent 70%);
+    opacity: 0.5;
+    will-change: transform;
+  }
+  #fx .o1 { width: 340px; height: 340px; top: 10%; left: 6%;  animation: drift1 26s ease-in-out infinite; }
+  #fx .o2 { width: 260px; height: 260px; top: 52%; left: 74%; animation: drift2 32s ease-in-out infinite; }
+  #fx .o3 { width: 300px; height: 300px; top: 82%; left: 18%; animation: drift3 30s ease-in-out infinite; }
+  @keyframes drift1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(60px, -40px); } }
+  @keyframes drift2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-70px, 34px); } }
+  @keyframes drift3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(44px, 52px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    #fx .orb { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 72px 0; }
+    .hero { padding: 112px 0 84px; }
+    .grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    .btn { display: block; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Mouse-reactive background -->
+  <div id="fx" aria-hidden="true">
+    <div class="orbs">
+      <span class="orb o1"></span>
+      <span class="orb o2"></span>
+      <span class="orb o3"></span>
+    </div>
+    <div class="spot"></div>
+  </div>
+
+  <!-- 1. HEADLINE / HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">For Residential HVAC Owners</span>
+      <h1><span class="accent">15 booked qualified appointments</span> in your calendar <span class="accent">within 30 days</span></h1>
+      <p class="lead">Not leads. Not enquiries. <span class="accent">Booked appointments</span> with <span class="accent">real residential customers</span> who need HVAC services <span class="accent">right now</span>.</p>
+      <p class="lead-note"><span class="accent">or you don't pay us</span></p>
+      <a href="https://calendly.com/hassanfn2009/discovery-call-with-hassan" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <!-- 2. WHAT I DO -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">What We Do</span>
+      <h2>We fill your calendar with booked appointments, not leads</h2>
+      <p class="body">Everyone runs the same generic ads. Your calendar stays empty, your techs stay idle, and you work harder for less.</p>
+      <p class="body">Every agency promises leads. But leads that never answer and never book are worthless.</p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="num">Step 1</span>
+          <h3>Deep Research</h3>
+          <p>We dig through competitor ads, HVAC groups, and reviews to find exactly what your customers complain about.</p>
+        </div>
+        <div class="card">
+          <span class="num">Step 2</span>
+          <h3>Ad Creation</h3>
+          <p>We build Meta Ads in your customers' own words, positioning you as the obvious choice.</p>
+        </div>
+        <div class="card">
+          <span class="num">Step 3</span>
+          <h3>Campaign Launch</h3>
+          <p>We run targeted ads to homeowners in your area who are actively looking for HVAC.</p>
+        </div>
+        <div class="card">
+          <span class="num">Step 4</span>
+          <h3>Instant Lead Capture</h3>
+          <p>Every lead gets an automatic text and email within 60 seconds. No lost leads.</p>
+        </div>
+        <div class="card">
+          <span class="num">Step 5</span>
+          <h3>Automated Qualification &amp; Follow-Up</h3>
+          <p>We qualify each lead, send a booking link, and follow up for 7 days automatically.</p>
+        </div>
+        <div class="card">
+          <span class="num">Step 6</span>
+          <h3>Booked Appointments Delivered</h3>
+          <p>Qualified appointments land in your calendar. Your team just shows up.</p>
+        </div>
+      </div>
+
+      <p class="subhead">Our Secret</p>
+      <p class="body">We don't guess what customers want. We pull their exact complaints from HVAC groups and reviews, and build your ads around them. <span class="accent">That is what goes into your ads.</span> Then we optimize every week. No long contracts, no excuses.</p>
+    </div>
+  </section>
+
+  <!-- 3. WHO IT IS FOR -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Who It's For</span>
+      <h2>Is this for you?</h2>
+      <p class="body">Residential HVAC owners with <span class="g">3 to 9 employees</span> who are done wasting money on Google Ads, HomeAdvisor, and word of mouth. Owners <span class="g">ready to grow</span>, if they could just find <span class="g">their next customer</span>.</p>
+
+      <p class="subhead">This isn't for everyone</p>
+      <div class="grid">
+        <div class="card">
+          <span class="num">Not For</span>
+          <h3>Owners who want it overnight</h3>
+          <p>Expecting 100 leads or a full calendar by the weekend.</p>
+        </div>
+        <div class="card">
+          <span class="num">Not For</span>
+          <h3>Owners who won't fund the ads</h3>
+          <p>Not willing to invest at least $1,000 a month in ad spend.</p>
+        </div>
+        <div class="card">
+          <span class="num">Not For</span>
+          <h3>Owners who won't show up</h3>
+          <p>Won't show up to booked appointments or answer the phone. We fill your calendar; we can't run your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROOF / RESULTS -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Proof &amp; Results</span>
+      <h2>The results speak for themselves</h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="figure">15</div>
+          <div class="label">Booked appointments in 30 days</div>
+        </div>
+        <div class="stat">
+          <div class="figure">$6k-$7.5k</div>
+          <div class="label">Potential revenue at $400 to $500 a job</div>
+        </div>
+        <div class="stat">
+          <div class="figure">$70</div>
+          <div class="label">Per booked appointment. That's all you pay</div>
+        </div>
+      </div>
+      <div class="guarantee">
+        <p>If we don't deliver 15 booked appointments in 30 days, <span class="accent">we work for free until we do.</span> You don't pay a dollar until they're in your calendar. <span class="accent">The risk is entirely ours.</span></p>
+        <span class="cite">Our Guarantee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FINAL CTA -->
+  <section class="cta" id="cta">
+    <div class="wrap">
+      <span class="eyebrow">No retainer. No upfront fees. No risk.</span>
+      <h2>15 booked appointments in 30 days, <span class="accent">or you don't pay</span></h2>
+      <p class="lead">Just $70 per booked appointment. 15 of them for $1,050, worth $6,000 to $7,500 in jobs. You only pay when they're booked.</p>
+      <a href="https://calendly.com/hassanfn2009/discovery-call-with-hassan" class="btn btn-lg">Book Now</a>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      var spot = document.querySelector('#fx .spot');
+      var orbs = document.querySelector('#fx .orbs');
+      var tx = window.innerWidth / 2, ty = window.innerHeight / 2, cx = tx, cy = ty;
+      window.addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
+      function loop() {
+        cx += (tx - cx) * 0.08;
+        cy += (ty - cy) * 0.08;
+        if (spot) spot.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+        if (orbs) {
+          var px = (tx / window.innerWidth - 0.5);
+          var py = (ty / window.innerHeight - 0.5);
+          orbs.style.transform = 'translate(' + (px * 26) + 'px,' + (py * 26) + 'px)';
+        }
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    })();
+  </script>
+
+</body>
+</html>
